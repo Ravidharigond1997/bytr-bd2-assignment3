@@ -266,6 +266,20 @@ app.get('/hotels/filter/amenity', (req, res) => {
   });
 });
 
+function filterByCategory(hotel, category){
+  return hotel.amenity.toLowerCase() === category.toLowerCase();
+}
+app.get('/hotels/filter/category', (req, res) => {
+  let category = req.query.category;
+  let filteredHotels = hotels.filter((hotel) =>
+    filterByCategory(hotel, category)
+  );
+
+  res.json({
+    filteredHotels,
+  });
+});
+
 function filterByCountry(hotel, country) {
   return hotel.country.toLowerCase() === country.toLowerCase();
 }
@@ -273,6 +287,20 @@ app.get('/hotels/filter/country', (req, res) => {
   let country = req.query.country;
   let filteredHotels = hotels.filter((hotel) =>
     filterByCountry(hotel, country)
+  );
+
+  res.json({
+    filteredHotels,
+  });
+});
+
+function filterByCountry(hotel, country) {
+  return hotel.country.toLowerCase() === country.toLowerCase();
+}
+app.get('/hotels/filter/category', (req, res) => {
+  let category = req.query.category;
+  let filteredHotels = hotels.filter((hotel) =>
+    filterByCountry(hotel, category)
   );
 
   res.json({
