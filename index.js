@@ -267,7 +267,7 @@ app.get('/hotels/filter/amenity', (req, res) => {
 });
 
 function filterByCategory(hotel, category){
-  return hotel.amenity.toLowerCase() === category.toLowerCase();
+  return hotel.category.toLowerCase() === category.toLowerCase();
 }
 app.get('/hotels/filter/category', (req, res) => {
   let category = req.query.category;
